@@ -1,0 +1,62 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Turma {% endblock %}
+{% block content %}
+    <div class="container">
+                
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' 'border-bottom pb-2 mb-0'>Cadastro de Turmas</h5>
+
+            <form enctype='multipart/form-data' action='submit', method='POST'>{% csrf_token %}
+                <input class='form-control' name='turma_id' type='number' value='{{ turma.id}}' hidden>
+
+
+                <div class='form-group'>
+                    <label for='ano'>Ano</label>
+                    <input class='form-control' name='ano' type='text' value='{{ turma.ano}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='semestre'>Semestre</label>
+                    <input class='form-control' name='semestre' type='date' value='{{ turma.semestre}}'>
+                </div>
+                
+                <div class="form-row field-disciplina">     
+                    <div>          
+                        <label class="required" for="id_disciplina">Disciplina</label>
+                        <select name="disciplina" id="id_disciplina">
+                            {% for m in disciplina%}
+                            <option value="{{m.nome}}">{{m.nome}}</option>
+                            {% endfor%}
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class='form-group'>
+                    <label for='numeroVagas'>Número de Vagas</label>
+                    <input class='form-control' name='numeroVagas' type='number' min='0' value='{{ turma.numeroVagas}}'>
+                </div>
+
+                <div class="form-row field-professor">     
+                    <div>          
+                        <label class="required" for="id_professor">Professor</label>
+                        <select name="professor" id="id_professor">
+                            {% for m in professor %}
+                            <option value="{{m.nome}}">{{m.nome}}</option>
+                            {% endfor%}
+                        </select>
+                    </div>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>  
+                    {% if turma %}
+                        Alterar
+                    {% else %}
+                        Cadastrar
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

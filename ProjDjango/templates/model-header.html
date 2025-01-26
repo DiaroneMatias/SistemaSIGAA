@@ -1,0 +1,102 @@
+<title>SIGAA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<style>
+
+    #menu a{
+        color: white;
+        background-color: black;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    #menu a:hover{
+        color: white
+        background-color: green;
+        border-bottom: white solid 1px;
+    }
+
+    .jumbotron.header{
+        background-color: green;
+        color: white;
+        background-image: linear-gradient(green, black)
+        }
+</style>
+
+<div class='jumbotron header text-center'>
+    <h1> SIGAA </h1>
+    <p>Sistema Acadêmico</p>
+</div>
+
+<div class='text-right mr-4'>
+    <a href='/logout/'>Sair</a>
+</div>
+
+<div class='text-right mr-4'>
+</div>
+
+<div class='conteiner'>
+    <ul class="nav nav-tabs mL-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Alunos</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/aluno/all">Lista de Alunos</a>
+                <a class="dropdown-item" href="/aluno/register/">Adicionar Aluno</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Cursos</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/curso/all">Lista de Cursos</a>
+                <a class="dropdown-item" href="/curso/register/">Adicionar Curso</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Matriculas</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/matricula/all">Lista de Matrículas</a>
+                <a class="dropdown-item" href="/matricula/register/">Adicionar Matrícula</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Professores</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/professor/all">Lista de Professores</a>
+                <a class="dropdown-item" href="/professor/register/">Adicionar Professor</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Disciplinas</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/disciplina/all">Lista de Disciplinas</a>
+                <a class="dropdown-item" href="/disciplina/register/">Adicionar Disciplina</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Periodos Letivos</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/periodoLetivo/all">Lista de Periodos Letivos</a>
+                <a class="dropdown-item" href="/periodoLetivo/register/">Adicionar Periodo</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color: white; background-color: black;" data-toggle="dropdown" href="#">Turmas</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/turma/all">Lista de Turmas</a>
+                <a class="dropdown-item" href="/turma/register/">Adicionar Turma</a>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,39 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Disciplina {% endblock title %}
+{% block content %}
+    <div class="container">
+                
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' 'border-bottom pb-2 mb-0'>Cadastro de Disciplinas</h5>
+
+            <form enctype='multipart/form-data' action='submit', method='POST'>{% csrf_token %}
+                <input class='form-control' name='disciplina_id' type='number' value='{{ disciplina.id}}' hidden>
+
+                <div class='form-group'>
+                    <label for='nome'>Nome</label>
+                    <input class='form-control' name='nome' type='text' value='{{ disciplina.nome}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='creditos'>Créditos</label>
+                    <input class='form-control' name='creditos' type='number' min='o' value='{{ disciplina.creditos}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='limiteFalta'>Limite de Faltas</label>
+                    <input class='form-control' name='limiteFalta' type='number' min='0' value='{{ disciplina.limiteFalta}}'>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>  
+                    {% if disciplina %}
+                        Alterar
+                    {% else %}
+                        Cadastrar
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

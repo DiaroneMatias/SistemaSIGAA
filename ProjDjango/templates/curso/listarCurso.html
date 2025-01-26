@@ -1,0 +1,28 @@
+{% extends 'model-page.html' %}
+
+
+{% block content %}
+
+    <div class='container'>
+
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' 'border-bottom pb-2 mb-0'>Lista de Cursos</h5>
+        </div>
+
+        <div class="card-columns" style="padding: 9px;">
+            {% for p in cursos %}
+            <div class="card text-white bg-dark mb-4 mp-8" style="max-width: 18rem; ">
+                <div style="background-color: green;" class="card-header">Nome: {{ p.nome }}</div>
+                <div style="background-color: green;" class="card-body">
+                    <h5 class="card-title">{{ p.curso}}</h5>
+                    <p class="card-text">Total de Créditos: {{ p.totalCreditos }}
+                        <a href="../detail/{{ p.id }}"><button type="button" class="btn btn-light">Detalhes</button></a>
+                    </p>
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Matrícula{% endblock title %}
+
+{% block content %}
+    <div class="container">
+                
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' 'border-bottom pb-2 mb-0'>Cadastro de Matrículas</h5>
+
+            <form enctype='multipart/form-data' action='submit', method='POST'>{% csrf_token %}
+                <input class='form-control' name='matricula_id' type='number' value='{{ matricula.id}}' hidden>
+
+                <div class='form-group'>
+                    <label for='ano'>Ano</label>
+                    <input class='form-control' name='ano' type='text'  value='{{ matricula.ano}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='semestre'>Semestre</label>
+                    <input class='form-control' name='semestre' type='text'  value='{{ matricula.semestre}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='matriculaAluno'>Matrícula do Aluno</label>
+                    <input class='form-control' name='matriculaAluno' maxlength='10' type='text'  value='{{ matricula.matriculaAluno}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='codDisciplina'>Código da Disciplina</label>
+                    <input class='form-control' name='codDisciplina' type='text' value='{{ matricula.codDisciplina}}'>
+                </div>
+
+
+                <div class='form-group'>
+                    <label for='nota1'>Primeira Nota</label>
+                    <input class='form-control' name='nota1' maxlength='11' type='text' min='0'  value='{{ matricula.nota1}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='nota2'>Segunda Nota</label>
+                    <input class='form-control' name='nota2' maxlength='11' type='text' min='0'  value='{{ matricula.nota2}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='falta1'>Faltas do Primeiro Bimestre</label>
+                    <input class='form-control' name='falta1' maxlength='11' type='number' min='0'  value='{{ matricula.falta1}}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='falta2'>Faltas do Segundo Bimestre</label>
+                    <input class='form-control' name='falta2' maxlength='11' type='number' min='0'  value='{{ matricula.falta2}}'>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>  
+                    {% if matricula %}
+                        Alterar
+                    {% else %}
+                        Cadastrar
+                    {% endif %}
+                </button>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Histórico {% endblock %}
+{% block content %} 
+
+    <div class="container">
+        
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' "border-bottom pb-2 mb-0">Histórico do Aluno</h5>
+            
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Ano:&nbsp; </strong>
+                {{matricula.ano}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Semestre:&nbsp; </strong>
+                {{matricula.semestre}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Matrícula do Aluno:&nbsp; </strong>
+                {{matricula.matriculaAluno }}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Código da Disciplina:&nbsp; </strong>
+                {{matricula.codDisciplina}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Nota 1:&nbsp; </strong>
+                {{matricula.nota1}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Nota 2:&nbsp; </strong>
+                {{matricula.nota2}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Falta 1:&nbsp; </strong>
+                {{matricula.falta1}}
+            </div>
+
+            <div class="d-flex text-muted pt-3">
+                <strong class="d-block text-gray-dark">Falta 2:&nbsp; </strong>
+                {{matricula.falta2}}
+            </div>
+        </div>
+    </div>   
+  
+{% endblock %}

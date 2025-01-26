@@ -1,0 +1,77 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Alunos {% endblock %}
+{% block content %}
+    <div class="container">
+            
+        <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h5 class='text-center' 'border-bottom pb-2 mb-0'>Cadastro de Alunos</h5>
+
+            <form enctype='multipart/form-data' action='submit', method='POST'>{% csrf_token %}
+                <input class='form-control' name='aluno_id' type='number' value='{{ aluno.id}}' hidden>
+
+                <div class='form-group'>
+                    <label for='nome'>Nome do Aluno</label>
+                    <input class='form-control' name='nome' type='text' value='{{ aluno.nome }}'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='cpf'>CPF</label>
+                    <input class='form-control' name='cpf' maxlength='11' type='text' value='{{ aluno.cpf }}'>
+                </div>
+
+                <div class="form-row field-matricula">     
+                    <div>          
+                        <label class="required" for="id_matricula">Matrícula</label>
+                        <select name="matricula" id="id_matricula">
+                            {% if aluno %}
+                            <option value="{{aluno.matricula}}">{{aluno.matricula}}</option>
+                            {% endif %}
+                            {% for m in matricula%}
+                            <option value="{{m.matriculaAluno}}">{{m.matriculaAluno}}</option>
+                            {% endfor%}
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+
+                <div class='form-group'>
+                    <label for='nasc'>Data de Nascimento</label>
+                    <input class='form-control' name='nasc' type='date'>
+                </div>
+
+                <div class='form-group'>
+                    <label for='idade'>Idade</label>
+                    <input class='form-control' name='idade' type='number' min='0' value='{{ aluno.idade }}'>
+                </div>
+
+                <div class="form-row field-situacao">     
+                    <div>          
+                        <label class="required" for="matricula">Situação</label>
+                        <select name='situacao' id="situacao">
+                            <option value="1">Matriculado</option>
+                            <option value="2" selected>Trancado</option>
+                            <option value="3">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+
+                <div class='form-group'>
+                    <label for='observacoes'>Observações</label>
+                    <textarea class='form-control' rows='5' name='observacoes' type='text'>{{ aluno.observacoes }}</textarea>
+                </div>
+
+                <button type='submit' class='btn btn-primary'>  
+                    {% if aluno %}
+                        Alterar
+                    {% else %}
+                        Cadastrar
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'model-page.html' %}
+
+{% block title %} Periodo Letivo {% endblock %}
+{% block content %}
+<div class="container">
+            
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <h5 class='text-center' 'border-bottom pb-2 mb-0'>Cadastro de Períodos Letivos</h5>
+
+        <form enctype='multipart/form-data' action='submit', method='POST'>{% csrf_token %}
+            <input class='form-control' name='periodoLetivo_id' type='number' value='{{ periodoLetivo.id}}' hidden>
+
+
+            <div class='form-group'>
+                <label for='ano'>Ano</label>
+                <input class='form-control' name='ano' type='text'  value='{{ periodoLetivo.ano}}'>
+            </div>
+
+            <div class='form-group'>
+                <label for='semestre'>Semestre</label>
+                <input class='form-control' name='semestre' type='number'  value='{{ periodoLetivo.semestre}}'>
+            </div>
+
+            <div class='form-group'>
+                <label for='dataInicio'>Data de Início</label>
+                <input class='form-control' name='dataInicio' type='date'  value='{{ periodoLetivo.dataInicio}}'>
+            </div>
+
+            <div class='form-group'>
+                <label for='dataFim'>Data de Término</label>
+                <input class='form-control' name='dataFim' type='date' value='{{ periodoLetivo.dataFim}}'>
+            </div>
+
+            <button type='submit' class='btn btn-primary'>  
+                {% if periodoLetivo %}
+                    Alterar
+                {% else %}
+                    Cadastrar
+                {% endif %}
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
